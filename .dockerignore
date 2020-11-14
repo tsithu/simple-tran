@@ -1,0 +1,13 @@
+node_modules
+build
+npm-debug.log
+yarn*.log
+Dockerfile
+.vscode
+.git
+.prettierrc
+.gitignore
+.yarnclean
+.env.sample
+README.md
+
