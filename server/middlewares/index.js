@@ -1,4 +1,5 @@
 import nuxt from './nuxt'
+import upload from './upload'
 export default config => [
   {
     name: 'koa-body',
@@ -29,5 +30,12 @@ export default config => [
     name: 'nuxt',
     disable: config.isApiOnly,
     middleware: nuxt
+  },
+  {
+    name: 'upload',
+    middleware: upload,
+    options: {
+      uploadDir: config.uploadDir
+    }
   }
 ]
