@@ -1,0 +1,8 @@
+{
+  "name": "simple-tran",
+  "version": "0.0.1",
+  "description": "Test Project - Simple Transaction",
+  "main": "index.js",
+  "license": "MIT",
+  "private": false
+}
