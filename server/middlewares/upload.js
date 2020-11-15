@@ -8,21 +8,24 @@ import { TransactionModel, TransactionController } from '$/modules/transaction'
 
 export default ({ app, config }) => {
   const router = new koaRouter()
-  const tranCtrl = new TransactionController(TransactionModel, config)
+  const transactionCtrl = new TransactionController(TransactionModel, config)
 
   const saveData = async data => {
     const savedData = []
     const errors = []
+    const currentUserId = 1 // never use hardcode value in actual project - will use current user
 
     if (data) {
       for (let i = 0; i < data.length; i++) {
         // eslint-disable-next-line security/detect-object-injection
         const record = data[i]
-        // TODO: implement to save transaction data
+        // eslint-disable-next-line no-await-in-loop
+        await transactionCtrl.createNew({
+          ...record,
+          createdBy: currentUserId,
+          updatedBy: currentUserId
+        })
         savedData.push(record)
-        // console.log(record)
-        // console.log(tranCtrl)
-        // await tranCtrl.createNew(record)
       }
     }
     return [savedData, errors.length > 0 ? errors : null]
@@ -49,11 +52,13 @@ export default ({ app, config }) => {
       const [parsedData, errorsOnParse] = await parseData(dist, { validator })
       if (errorsOnParse) {
         ctx.send(400, errorsOnParse)
+        return
       }
 
       const [savedData, errorsOnSave] = await saveData(parsedData)
       if (errorsOnSave) {
         ctx.send(400, errorsOnSave)
+        return
       }
 
       ctx.ok(savedData)
