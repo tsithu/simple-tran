@@ -2,7 +2,7 @@ import path from 'path'
 import csvParser from './csv-parser'
 import xmlParser from './xml-parser'
 
-export default (file, options) => {
+export default async(file, options) => {
   if (file) {
     const ext = path.extname(file)
     switch (ext.toLowerCase()) {

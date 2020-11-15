@@ -1,3 +1,5 @@
 export default [
-  { src: '~/plugins/vuex-persistedstate', mode: 'client' }
+  '~/plugins/filters',
+  { src: '~/plugins/vue-upload-component', mode: 'client' },
+  { src: '~/plugins/vue-axios' }
 ]

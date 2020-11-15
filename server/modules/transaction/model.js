@@ -1,11 +1,11 @@
 import BaseModel from '$/modules/core/base/model'
 
 export default class TransactionModel extends BaseModel {
-  static get modelName () {
+  static get modelName() {
     return 'Transaction'
   }
 
-  static get jsonSchema () {
+  static get jsonSchema() {
     const baseSchema = super.jsonSchema
     const { required, properties } = baseSchema
     return {

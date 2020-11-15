@@ -63,7 +63,7 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extend (config, ctx) {
+    extend(config, ctx) {
       if (!ctx.isDev) {
         config.module.rules.push({
           test: /\.less$/,

@@ -1,5 +1,6 @@
 import nuxt from './nuxt'
 import upload from './upload'
+
 export default config => [
   {
     name: 'koa-body',

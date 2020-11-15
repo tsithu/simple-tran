@@ -1,10 +1,8 @@
-import status from './mappings/csv-status'
-
 export default (data, options) => {
   const errors = []
   // TODO: implement validator
-  return {
-    isValid: errors.length === 0,
-    errors
-  }
+  console.log(data)
+  console.log(options)
+
+  return [data, errors.length > 0 ? errors : null]
 }
