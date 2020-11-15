@@ -3,6 +3,9 @@ const TABLE = 'transactions'
 exports.up = async knex => {
   await knex.schema.createTable(TABLE, table => {
     table.increments()
+    table.string('code', 50)
+      .notNullable()
+      .index()
     table.decimal('amount', 16, 2)
       .defaultTo(0)
     table.string('currency_code', 20)

@@ -20,8 +20,8 @@ export default ({ app, config }) => {
         const record = data[i]
         // TODO: implement to save transaction data
         savedData.push(record)
-        console.log(record)
-        console.log(tranCtrl)
+        // console.log(record)
+        // console.log(tranCtrl)
         // await tranCtrl.createNew(record)
       }
     }
