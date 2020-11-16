@@ -15,4 +15,12 @@
             </PaymentDetails>
             <Status>Rejected</Status>
     </Transaction>
+    <Transaction id="Inv00003">
+        <TransactionDate>2020-01-24T16:09:15</TransactionDate>
+            <PaymentDetails>
+                <Amount>1000.00</Amount>
+                <CurrencyCode>MMK</CurrencyCode>
+            </PaymentDetails>
+            <Status>Done</Status>
+    </Transaction>
 </Transactions>

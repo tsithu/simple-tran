@@ -39,9 +39,9 @@ export default ({ app, config }) => {
       type: fileType
     } = request.files.file
     const fileExtension = mime.extension(fileType)
-    const allowedExt = ['csv', 'xml']
+    const validExt = ['csv', 'xml']
 
-    if (allowedExt.indexOf(fileExtension) >= 0) {
+    if (validExt.indexOf(fileExtension) >= 0) {
       const dist = `${process.cwd()}/${uploadDir}/${fileName}`
       await fs.copyFile(src, dist, err => {
         if (err) {

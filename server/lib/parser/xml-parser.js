@@ -20,32 +20,34 @@ export default async(file, options) => {
         code: _.get(child, 'attributes.id'),
         ...(arr => {
           const attrs = {}
-          arr.forEach(({ name, content, children: c1 }) => {
-            switch (name.toLowerCase()) {
-              case 'transactiondate':
-                attrs.transactionDate = moment(content, 'YYYY-MM-DD HH:mm:SS').toDate()
-                break
-              case 'status':
-                attrs.status = statusMappings[content.toString()]
-                break
-              case 'paymentdetails':
-                c1.forEach(({ name: c1Name, content: c1Content }) => {
-                  switch (c1Name.toLowerCase()) {
-                    case 'amount':
-                      attrs.amount = parseFloat(c1Content)
-                      break
-                    case 'currencycode':
-                      attrs.currencyCode = c1Content
-                      break
-                    default:
-                      break
-                  }
-                })
-                break
-              default:
-                break
-            }
-          })
+          if (_.isArray(arr)) {
+            arr.forEach(({ name, content, children: c1 }) => {
+              switch (name.toLowerCase()) {
+                case 'transactiondate':
+                  attrs.transactionDate = moment(content, 'YYYY-MM-DD HH:mm:SS').toDate()
+                  break
+                case 'status':
+                  attrs.status = statusMappings[content.toString()]
+                  break
+                case 'paymentdetails':
+                  c1.forEach(({ name: c1Name, content: c1Content }) => {
+                    switch (c1Name.toLowerCase()) {
+                      case 'amount':
+                        attrs.amount = parseFloat(c1Content)
+                        break
+                      case 'currencycode':
+                        attrs.currencyCode = c1Content
+                        break
+                      default:
+                        break
+                    }
+                  })
+                  break
+                default:
+                  break
+              }
+            })
+          }
           return attrs
         })(_.get(child, 'children'))
       }
