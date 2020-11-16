@@ -20,12 +20,12 @@ export default ({ app, config }) => {
         // eslint-disable-next-line security/detect-object-injection
         const record = data[i]
         // eslint-disable-next-line no-await-in-loop
-        await transactionCtrl.createNew({
+        const savedRecord = await transactionCtrl.createNew({
           ...record,
           createdBy: currentUserId,
           updatedBy: currentUserId
         })
-        savedData.push(record)
+        savedData.push(savedRecord)
       }
     }
     return [savedData, errors.length > 0 ? errors : null]

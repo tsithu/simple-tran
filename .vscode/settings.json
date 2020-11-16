@@ -1,13 +1,17 @@
 {
     "cSpell.words": [
+        "DDTHH",
         "bstart",
+        "currencycode",
         "inmemory",
         "kako",
         "nuxt",
         "nuxtjs",
+        "paymentdetails",
         "persistedstate",
         "pino",
         "ratelimit",
+        "transactiondate",
         "uniqid"
     ]
 }
