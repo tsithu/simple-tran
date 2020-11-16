@@ -8,6 +8,9 @@
         </div>
       </div>
       <div>
+        <button class="btn btn-primary" @click.prevent="loadData()">
+          Load All
+        </button>
         <button class="btn btn-info" @click.prevent="loadData('byCurrency')">
           By Currency
         </button>
@@ -19,11 +22,6 @@
         </button>
       </div>
     </form>
-    <div class="my-4">
-      <button class="btn btn-primary" @click.prevent="loadData()">
-        Reload
-      </button>
-    </div>
     <table class="table">
       <thead>
         <th v-for="col in columns" :key="col">
